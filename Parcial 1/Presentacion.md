@@ -22,4 +22,4 @@ Por ultimo en cuanto a programacion web, tengo conocimiento medio sobre html y b
 |    ruby |    leer    |
 
 
-por ultimo en mis planes esta elegir la especialidad de desarrollo ya que de la ing en sistemas lo que mas disfruto es programar.
+por ultimo en mis planes esta elegir la especialidad de desarrollo ya que de la ing en sistemas lo que mas disfruto es programar y me gustaria dedicarme a Moviles o programacion web.
