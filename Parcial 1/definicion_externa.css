@@ -1,0 +1,28 @@
+h1{ /*selector de todo el objeto*/
+    color: red;
+}
+#p1{ /*selector por id*/
+    background-color: blue;
+}
+.cosasazules{ /*selector por clases*/
+    color: green;
+}
+
+/*selectores relacionales*/
+/*
+div p - descendiente - los elementos p que estan dentro de div
+div>p - descendiente directo - los elemntos p son hijos directos de div
+div + p - hermano adayacente - el elemento p que sean hermano y este inmediatamente al lado
+div - p - hermano general.
+*/
+#id1{
+    
+    margin-right: 10px;
+border: 10px;
+    padding: 10px;
+}
+div > p#id1:hover{
+color: blue;
+border-color: aquamarine;
+
+}
