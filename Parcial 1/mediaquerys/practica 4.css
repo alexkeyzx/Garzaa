@@ -39,6 +39,9 @@ margin: 2PX;
         width: calc((100% / 2) - 6px);
         display: block;
     }
+    #caja5:hover{
+        background-color: red;
+    }
     
 }
 @media screen and (max-width: 400px){
