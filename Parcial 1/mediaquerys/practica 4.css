@@ -29,9 +29,8 @@ margin: 2PX;
         display: block;
         
     }
-    #caja5 :hover{
-        background-color: lightgray;
-        
+    #caja5:hover{
+        background-color: black;
     }
 }
 @media screen and (max-width:600px){
@@ -52,5 +51,16 @@ margin: 2PX;
     .caja{
         width: calc(100% - 8px) ;
         
+
     }
+}
+#fondo{
+    opacity: 0%;
+    z-index: 100;
+    background-color: red;
+    
+}
+#pruebamodal{
+    background-color: red;
+    visibility: hidden;
 }

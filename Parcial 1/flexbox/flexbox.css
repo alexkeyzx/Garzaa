@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.Padre{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    background-color: blue;
+    flex-direction: row;
+    
+}
+.hijo{
+    height: 125px;
+    background-color: aqua;
+    margin: 05px;
+    text-align: center;
+}
+#hijo1{
+    flex-grow: 1;
+}
+
+#hijo2{
+    flex-grow: 2;
+}
+
+#hijo3{
+    flex-grow: 3;
+}
+
+#hijo4{
+    flex-grow: 4;
+}

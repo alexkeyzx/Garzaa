@@ -1,0 +1,56 @@
+*{
+    padding: 0px;
+	margin: 0px;
+}
+#Cabecera{
+   
+background: black;
+	z-index: 	10;
+	box-shadow: 2px 2px 15px 0 black;
+	margin-bottom: 0;
+	z-index: 0;
+	display: block;
+	padding: 20px;
+	border-bottom: 0;
+}
+li{
+    color: white;
+}
+#li--Logo{
+    margin-left: 0;
+	margin-right: 	auto;
+	display: inline;
+	padding: 10px;
+	color: white;
+	text-align: left;
+    
+    
+    
+}
+.list--li
+{
+    margin-left: auto;
+	margin-right: 0;
+	display: inline;
+	padding: 10px;
+	color: white;
+	text-align: right;
+}
+.enlace{
+	color: white;
+}
+.imagenplaneta
+{
+	margin: -100px;
+	
+	z-index: 0;
+	
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+box-shadow: 2px 2px 7px 2px black;
+
+}
