@@ -1,0 +1,196 @@
+*{
+    padding: 0px;
+	margin: 0px;
+}
+#Cabecera{
+   
+background: black;
+	z-index: 	10;
+	box-shadow: 2px 2px 15px 0 black;
+	margin-bottom: 0;
+	z-index: 0;
+	display: block;
+	padding: 20px;
+	border-bottom: 0;
+
+}
+
+ul>li>ul{
+    display:none ;
+    
+}
+
+ul>li:hover>ul{
+    display: block;
+    height: 100%;
+   
+}
+
+
+.opcion{
+    border-left-color: gray;
+    border-left: 2px;
+    border-left-style: solid;
+    color: white;
+   display: inline;
+    padding: 10px;
+    
+}
+
+.subOpcion{
+    padding-left: 20px;
+}
+.ventana--Modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: gray;
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+}
+.ventana--Modal:target{
+    opacity: 10;
+    pointer-events: auto;
+}
+
+.ventana--Modal > div{
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    box-shadow: var(--box);
+
+}
+div > h1{
+    color: red;
+   
+    
+}
+
+.Cerrar{
+    color: lightsalmon;
+    text-align:justify;
+}
+.Abrir:hover{
+    color: white;
+}
+.Cerrar:hover{
+    color: white;
+}
+ .contact-form
+ {
+font-size: 16px;
+}
+
+.div-Cuadro{
+	
+	background: black;
+	z-index: 	10;
+	box-shadow: 2px 2px 15px 0 black;
+	margin-bottom: 0;
+	z-index: 0;
+	display: block;
+	padding: 20px;
+	border-bottom: 0;
+
+
+}
+
+.prueba{
+	margin-top	: -20px;
+	
+	border: -10px;
+	box-shadow: 2px 2px 7px 2px black;}
+.list__li--logo
+{
+	margin-left: 0;
+	margin-right: 	auto;
+	display: inline;
+	padding: 10px;
+	color: white;
+	text-align: left;
+}
+
+.list__li
+{
+	margin-left: auto;
+	margin-right: 0;
+	display: inline;
+	padding: 10px;
+	color: white;
+	text-align: right;
+}
+.enlace{
+	color: white;
+}
+.imagenplaneta
+{
+	margin: -100px;
+	
+	z-index: 0;
+	
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+box-shadow: 2px 2px 7px 2px black;
+
+}
+
+.contact-form__h1
+{
+	
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+	display: block;
+	margin:20px 20px ;
+	position: relative;
+	background: transparent;
+	margin-bottom: 0px;
+	
+
+	font-size: 5em;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.5;
+	color: white;
+	
+	text-shadow: 2px 2px 7px black, 2px 2px 7px black,2px 2px 7px black,2px 2px 7px black;
+	
+}
+
+.contact-form__h2
+{
+	text-align: center;
+	
+	background: transparent;
+	border-radius: 1em;
+	display: block;
+	
+	
+	
+	
+
+	font-size: 1.9em;
+	font-family: 'Montserrat', sans-serif;
+	
+	line-height: 1.5;
+	color: white;
+	
+	text-shadow: 2px 2px 7px black, 2px 2px 7px black,2px 2px 7px black,2px 2px 7px black;
+	position: relative;
+	margin-bottom: 100px;
+	}
+
+
+
+
+
