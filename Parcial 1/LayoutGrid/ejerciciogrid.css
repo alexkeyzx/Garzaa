@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#contenedor{
+    width: 100vw;
+    height: 100vh;
+    background-color: lightblue;
+
+    display:grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 25% 25% 25% 25%;
+    
+    grid-template-areas: "head head"
+                         "c1 side"
+                         "c2 side"
+                         "ftr ftr";
+
+    justify-content: stretch;
+    justify-items: stretch;
+    align-content: stretch;
+    align-items: stretch;
+    grid-auto-flow:column;
+    }
+    
+    .caja{
+        
+        background-color: cyan;
+        border: 5px red solid;
+    }
+    #head{
+        grid-area: head;
+    }
+    #side{
+        grid-area: side;
+    }
+    #c1{
+        grid-area: c1;
+    }
+    #c2{
+        grid-area: c2;
+    }
+    #ftr{
+        grid-area: ftr;
+    }
