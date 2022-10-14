@@ -1,7 +1,12 @@
+body{
+    padding: 0px;
+    border: 0px;  
+    background-color: black;
+}
 .DisplayGrid{
-    width: 100%;
-    height: 100%;
-    background-color: lightblue;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
     display:grid;
    grid-template-columns: 200px 200px 200px;
    grid-template-rows: 200px 200px 200px;
@@ -10,15 +15,16 @@
    justify-items: stretch;
    align-items: center;
     grid-auto-flow:row;
-    
+    color: beige;
+
 }
 .hijo{
     width: 100%;
      height: 100%;
-    background-color: cyan;
-    border: 5px red solid;
+    background-color: black;
+    border: 1px white solid;
 }
 #hijo1{
    grid-column-start: 1;
-   grid-column-end: 4;
+   grid-column-end: 3;
 }
