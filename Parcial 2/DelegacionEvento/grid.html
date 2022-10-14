@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="grid.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="DisplayGrid">
+        <div class="hijo" id="hijo1">Hijo 1</div>
+        <div class="hijo" id="Hijo2">Hijo 2</div>
+        <div class="hijo" id="Hijo3">Hijo 3</div>
+        <div class="hijo" id="Hijo4">Hijo 4</div>
+        <div class="hijo" id="Hijo5">Hijo 5</div>
+        <div class="hijo" id="Hijo6">Hijo 6</div>
+        <div class="hijo"id="Hijo7">Hijo 7</div>
+        <div class="hijo" id="Hijo8">Hijo 8</div>
+        
+      
+    </div>
+    <script>
+        let elem=document.querySelector('.DisplayGrid')
+        
+        const cambiarCaja= (event)=>{
+            console.log(event)
+            if(document.getElementById(event.target.id).classList.contains('hijo')){
+                document.getElementById(event.target.id).classList.toggle('cajaRoja')
+                document.getElementById(event.target.id).style.backgroundColor='red'
+            }
+            
+            if(event.target.id=='hijo1'){
+                elem.removeEventListener('click',cambiarCaja)
+            }
+          
+        }
+        elem.addEventListener('click',cambiarCaja)
+    </script>
+</body>
+</html>
