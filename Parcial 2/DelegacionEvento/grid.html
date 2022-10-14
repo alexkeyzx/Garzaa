@@ -26,8 +26,9 @@
         const cambiarCaja= (event)=>{
             console.log(event)
             if(document.getElementById(event.target.id).classList.contains('hijo')){
-                document.getElementById(event.target.id).classList.toggle('cajaRoja')
-                document.getElementById(event.target.id).style.backgroundColor='red'
+                document.getElementById(event.target.id).classList.toggle('CajaAzul')
+                document.getElementById(event.target.id).style.backgroundColor='blue'
+                document.getElementById(event.target.id).style.color="gold"
             }
             
             if(event.target.id=='hijo1'){
