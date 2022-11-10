@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label id ="txt" for="cad">Cadena</label>
+    <input id="cad" type="text">
+    <button id="btn">procesar</button>
+</body>
+<script type="module">
+    import * as funcion from "./modulo.js";
+    
+    document.getElementById("btn").addEventListener("click",function(){
+        let valor = document.getElementById("cad").value
+        console.log(funcion.mayuscula(valor))
+        document.getElementById("txt").innerHTML = funcion.longitud(valor)
+
+    });
+</script>
+</html>
