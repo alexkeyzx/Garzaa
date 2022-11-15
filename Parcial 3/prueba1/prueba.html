@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../build/build.js"></script>
+    <script>
+        var notify = require('notification');
+      </script>
+    <button id="notificacion">hola</button>
+</body>
+
+</html>
+<script>
+    document.getElementById("notificacion").addEventListener("click", prueba);
+
+    function prueba(){
+
+        
+        notify.info("hola", "hola")
+    }
+</script>
