@@ -114,6 +114,7 @@
             </form>
             <button class="btn btn-warning mt-3 g-3" id="btnGuardar">Guardar</button>
             <button class="btn btn-warning mt-3 g-3" data-bs-toggle="modal" data-bs-target="#VentanaModal">Mostrar</button>
+            <button class="btn btn-warning mt-3 g3" id="btnPHP" data-bs-toggle="modal" data-bs-target="#VentanaModal">Registro</button>
           </div>
 
           <div class="modal" id="VentanaModal" tabindex="-1" role="dialog" aria-labelledby="TituloVentana" aria-hidden="true">
@@ -144,22 +145,23 @@
 
 
 
-    <!-- <script>
-        document.getElementById("btnActualizar").addEventListener("click", ()=>{
+    <script>
+        document.getElementById("btnPHP").addEventListener("click", ()=>{
             fetch('formulario.php')
                 .then(respuesta=>respuesta.json())
                 .then(dato=>imprimir(dato))
         })
 
-        function imprimir(reg){
-            document.getElementById("lblActualizable").innerHTML = reg.Nombre
-            document.getElementById("lblApellido").innerHTML = reg.Apellido
+            function imprimir(reg){
+
+            document.getElementById('txtModal').innerHTML="Nombre: " + reg.Nombre + "<br> Efecto: " + reg.Efecto
+             + "<br> Lore: " + reg.Lore + "<br> Fuerza: " + reg.Fuerza + "<br> Destreza: " + reg.Destreza + "<br> Inteligencia: " + reg.Inteligencia
+            + "<br> Fe: " + reg.Fe + "<br> Arcano: " + reg.Arcano + "<br> Espacios: " + reg.Espacios
+            document.getElementById("imgModal").src= reg.Imagen;
 
         }
-        document.getElementById("btnActualizar").addEventListener("click", ()=>{
-            
-        })
-    </script> -->
+     
+    </script> 
 
 </body>
 </html>
