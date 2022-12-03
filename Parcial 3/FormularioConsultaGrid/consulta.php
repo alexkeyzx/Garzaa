@@ -1,11 +1,11 @@
 <?php
 $servidor = "localhost";
-$basededatos = "prueba1";
+$basededatos = "psicologia";
 $usuario = "root";
 $password = "Sobrecarga2*";
 
 $con = mysqli_connect($servidor,$usuario,$password,$basededatos) or die("no se pudo conectar a localhost");
-$consulta = "select Id,Nombre,Apellido from usuarios";
+$consulta = "select Id_nino, nombre from paciente";
 
 $registros = mysqli_query($con,$consulta) or die ("problemas en el select");
 

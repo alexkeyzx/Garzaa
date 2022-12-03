@@ -10,7 +10,7 @@ $(document).ready(()=>{
          contentType: 'application/json',
          async: true,
          success: (usuarios)=> {console.log(usuarios)
-        const usu= JSON.parse(usuarios)
+         const usu= JSON.parse(usuarios)
          $("#jsGrid").jsGrid({
          width: "100%",
          height: "400px",
@@ -23,9 +23,9 @@ $(document).ready(()=>{
          data: usu,
      
          fields: [
-             { name: "Id", type: "number", width: 150, validate: "required" },
-             { name: "Nombre", type: "text", width: 50 },
-             { name: "Apellido", type: "text", width: 50 },
+             { name: "Id_nino", type: "number", width: 150, validate: "required" },
+             { name: "nombre", type: "text", width: 50 },
+            
              //{ name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
              
              { type: "control" }
