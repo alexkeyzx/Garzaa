@@ -1,4 +1,5 @@
 <?php
+$Id = $_POST['sID'];
 $servidor = "localhost";
 $basededatos = "proyectoweb";
 $usuario = "root";
@@ -22,8 +23,7 @@ $Inteligencia = $_POST['inpInteligencia'];
 $Fe = $_POST['inpFe'];
 $Arcano = $_POST['inpArcano'];
 $Espacios = $_POST['inpEspacios'];
-//PRINTF($Nombre, $Efecto, $Lore, $Fuerza, $Destreza, $Inteligencia, $Fe, $Arcano, $Espacios);
 
-$insert = "INSERT INTO `magia` (`Id`, `Nombre`, `Efecto`, `imagen`, `Lore`, `Fuerza`, `Destreza`, `Inteligencia`, `Fe`, `Arcano`, `Espacios`) VALUES (NULL,'$Nombre','$Efecto','$imgenvio','$Lore',$Fuerza,$Destreza,$Inteligencia,$Fe,$Arcano,$Espacios)";
-$querry = mysqli_query($con, $insert) or die ("problemas en el select");
+$update = "UPDATE magia SET Nombre= '$Nombre', Efecto= '$Efecto', Lore= '$Lore', Fuerza= $Fuerza, Destreza='$Destreza', Inteligencia='$Inteligencia', Fe='$Fe',Arcano = '$Arcano', Espacios='$Espacios', imagen = '$imgenvio' where Id= $Id";
+$querry = mysqli_query($con, $update) or die ("problemas en el update");
 ?>

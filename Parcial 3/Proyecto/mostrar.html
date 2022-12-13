@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+<body onload="añadirOpcion()" class="bg-dark">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./archivos/Logo1.png" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./formulario.html">Formulario</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./mostrar.html">Muestra</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="text-header d-flex align-item-center" id="header">
+        <div class="container align-item-center ">
+            <div class="row">
+                <div class="col img-fluid">
+                    
+                    <img src="./archivos/logoArte.png"  class="mx-auto d-block" id="LogoCentral" alt="">
+                   
+                </div>
+            </div>
+        </div>
+      </div>
+      <form id="form" class="text-center" >
+        <div class="container-fluid text-center bg-dark text-warning row">
+            <h1 class="text-center border-bottom ">Magias</h1>
+            <div>
+              <select class="form-control" name="sID" id="sID"></select>
+            </div>
+            <button type="button" id="mostrarModal" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#modal">
+                mostrar
+              </button>             
+        </div>
+      </form>
+      <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5 text-center" id="tituloModal"></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row container text-center border ">
+                  
+                      <img id="imgModal" class="col-12 align-self-center border border-dark">
+                      <div id="Descripcion" class="col-12 align-self-center border border-dark"></div>
+                      <div id="Lore" class="col-12 align-self-center border border-dark"></div>
+                    <div id="Fuerza" class="col-6 border border-dark"></div>
+                    <div id="Destreza" class="col-6 border border-dark"></div>
+                    <div id="inteligencia" class="col-6 border border-dark"></div>
+                    <div id="FE" class="col-6 border border-dark"></div>
+                    <div id="Arcano" class="col-6 border border-dark"></div>
+                    <div id="Espacios" class="col-6 border border-dark"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>   
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script>
+      //consulta ID
+       async function añadirOpcion(){
+        let Formulario = new FormData(document.getElementById('form'))
+        
+        let results = await fetch('./php/consultarID.php',{
+          method:'POST',
+          body: Formulario
+        })
+        let dato = await results.json()
+        console.log(dato.length)
+        for (var i = 0; i < dato.length; i++) {
+          const option = document.createElement('option');
+          const valor = dato[i].Id
+          option.value = valor;
+          option.text = valor;
+          document.getElementById("sID").appendChild(option);
+          
+          }
+      }
+      
+      //Consulta todo
+      document.getElementById('mostrarModal').addEventListener('click',async(e)=>{
+        e.preventDefault()
+        const form = new FormData(document.getElementById('form'))
+        const results = await fetch('./php/consultaTodo.php',{
+       method:'POST',
+       body: form
+       })
+      let data= await results.json()
+      console.log(data)
+      document.getElementById('tituloModal').innerHTML = data.Nombre
+      document.getElementById('imgModal').src = data.imagen
+      document.getElementById('Descripcion').innerHTML = data.Efecto
+      document.getElementById('Lore').innerHTML = data.Lore
+      document.getElementById('Fuerza').innerHTML = data.Fuerza
+      document.getElementById('Destreza').innerHTML = data.Destreza
+      document.getElementById('inteligencia').innerHTML = data.Inteligencia
+      document.getElementById('FE').innerHTML = data.Fe
+      document.getElementById('Arcano').innerHTML = data.Arcano
+      document.getElementById('Espacios').innerHTML = data.Espacios
+
+      })
+    </script> 
+
+</body>
+</html>

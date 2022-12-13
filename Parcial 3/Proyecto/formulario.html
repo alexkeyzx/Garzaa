@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./index.css">
 
 </head>
-<body>
+<body onload="añadirOpcion()">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="./index.js"></script>
 
@@ -26,10 +26,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Formulario</a>
+                <a class="nav-link active" aria-current="page" href="./formulario.html">Formulario</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#">Muestra</a>
+                <a class="nav-link active" href="./mostrar.html">Muestra</a>
               </li>
             </ul>
           </div>
@@ -50,10 +50,10 @@
       </div>
 
       <form id="form" >
-        <div class="container-fluid text-center bg-dark text-warning ">
+        <div class="container-fluid text-center bg-dark text-warning row">
           <h1 class="text-center border-bottom ">Descripcion</h1>
   
-            <form class="row g-3 mt-3" enctype="multipart/form-data">
+          
               <div class="col-xl-12 col-md-4 col-sm-12">
                   <label for="inpNombre" class="form-label ">Nombre</label>
                   <input type="Nombre" class="form-control" id="inpNombre" placeholder="Nombre" name="inpNombre">
@@ -68,22 +68,22 @@
   
               <div class="col-xl-12 col-md-4 col-sm-12">
                   <label for="inpImagen" class="form-label ">Imagen</label>
-                  <input type="file" class="form-control " id="inpImagen" placeholder="Imagen" name="inpImagen>
+                  <input type="file" class="form-control " id="inpImagen" placeholder="Imagen" name="inpImagen">
               </div>
   
               <div class="col-12">
                   <label for="inpLore" class="form-label ">Lore</label>
                   <textarea type="input" class="form-control" id="inpLore" placeholder="Lore" rows="3" name="inpLore"></textarea>
               </div>
-            </form>
+            
            
          
         </div>
   
-        <div class="container-fluid  bg-dark text-warning">
+        <div class="container-fluid  bg-dark text-warning row">
           <h1 class="text-center border-bottom">Requerimientos</h1>
   
-          <form class="row g-3 mt-3" >
+       
             <div class="col-xl-6 col-md-4 col-sm-12">
                 <label for="inpFuerza" class="form-label ">Fuerza</label>
                 <input type="number" min="0" max="99" class="form-control" id="inpFuerza" placeholder="Fuerza" name="inpFuerza">
@@ -111,17 +111,19 @@
               <label for="inpEspacios" class="form-label ">Espacios usados</label>
               <input type="number" min="0" max="3" class="form-control" id="inpEspacios" placeholder="Espacios" name="inpEspacios">
           </div>
-          <div class="col-4">
-            <button type="button  " class="btn btn-warning mt-3 g-3" id="btnGuardar">Guardar</button>
+          <div class="col-12">
+            <label for="sID">ID:</label>
+            <select class="form-control" name="sID" id="sID"></select>
           </div>
-          
-          
-          </form>
-          
-        
-        </div>
-
-        
+          <div class="col-4">
+            <button type="button" class="btn btn-warning mt-3 g-3" id="btnGuardar">Guardar</button>
+            <button type="button" class="btn btn-warning mt-3 g-3" id="btnActualizar">Actualizar</button>
+            <button type="button" class="btn btn-warning mt-3 g-3" id="btnBorrar">Borrar</button>
+            
+            
+          </div>
+         
+        </div>     
       </form>
       
 
@@ -131,23 +133,88 @@
 
 
     <script>
-      document.getElementById('btnGuardar').addEventListener('click', async(e)=>{
-        e.preventDefault();
+       async function añadirOpcion(){
         let Formulario = new FormData(document.getElementById('form'))
-        console.log(Formulario.get('inpNombre'))
-        await fetch('./php/insert.php',{
+        
+        let results = await fetch('./php/consultarID.php',{
           method:'POST',
           body: Formulario
         })
-        //.then(res => res.json())
-        //.then(data =>{
-          //if(data == 'True'){
-            //console.log('Datos insertador correctamente')
-          //}else
-          //console.log(data)
-        //})
+        let dato = await results.json()
+        console.log(dato.length)
+        for (var i = 0; i < dato.length; i++) {
+          const option = document.createElement('option');
+          const valor = dato[i].Id
+          option.value = valor;
+          option.text = valor;
+          document.getElementById("sID").appendChild(option);
+          
+          }
+      }
+      document.getElementById('btnActualizar').addEventListener('click', async(e)=>{
+        
+        let Formulario = new FormData(document.getElementById('form'))
+        const res = await fetch('./php/Actualizar.php',{
+          method:'POST',
+          body: Formulario
+        })
+        res.status==200?
+        alert("Actualizado correctamente")
+        :
+        alert("No se pudo actualizar")
+        location.reload();
       })
-     
+      document.getElementById('sID').addEventListener('click', async(e)=>{
+        e.preventDefault();
+        let Formulario = new FormData(document.getElementById('form'))
+        const res = await fetch('./php/consultaTodo.php',{
+          method:'POST',
+          body: Formulario
+        })
+        var data = await res.json();
+        document.getElementById('inpNombre').value = data.Nombre
+        document.getElementById('inpEfecto').value = data.Efecto
+        document.getElementById('inpLore').value = data.Lore
+        document.getElementById('inpImagen').innerHTML = data.imagen
+        document.getElementById('inpFuerza').value = data.Fuerza
+        document.getElementById('inpDestreza').value = data.Destreza
+        document.getElementById('inpInteligencia').value = data.Inteligencia
+        document.getElementById('inpFe').value = data.Fe
+        document.getElementById('inpArcano').value = data.Arcano
+        document.getElementById('inpEspacios').value = data.Espacios
+
+
+      })
+      document.getElementById('btnGuardar').addEventListener('click', async(e)=>{
+        
+        let Formulario = new FormData(document.getElementById('form'))
+        console.log(document.getElementById("inpEfecto").value)
+        const res = await fetch('./php/insert.php',{
+          method:'POST',
+          body: Formulario
+        }) 
+        res.status==200?
+        alert("guardado correctamente")
+        
+        :
+        alert("No se pudo actualizar")
+        document.getElementById('form').reset();
+        location.reload();
+      })
+      document.getElementById('btnBorrar').addEventListener('click', async(e)=>{
+        e.preventDefault();
+        let Formulario = new FormData(document.getElementById('form'))
+        const res = await fetch('./php/Delete.php',{
+          method:'POST',
+          body: Formulario
+        })
+        res.status==200?
+        alert("eliminado correctamente")
+        :
+        alert("No se pudo actualizar")
+        document.getElementById('form').reset();
+        location.reload();
+      })
     </script> 
 
 </body>
